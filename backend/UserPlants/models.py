@@ -1,6 +1,6 @@
 from django.db import models
 from plants.models import Plant
-from django.contrib.auth.models import User
+from authentication.models import User
 # Create your models here.
 
 

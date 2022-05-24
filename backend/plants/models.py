@@ -9,5 +9,4 @@ class Plant(models.Model):
     water_cycle = models.CharField(max_length=255)
     water_amount = models.CharField(max_length=255)
     time_to_harvest = models.DateField()
-    harvested = models.BooleanField(default=False)
     season = models.CharField(max_length=255)
