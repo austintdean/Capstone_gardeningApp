@@ -7,6 +7,6 @@ from authentication.models import User
 class UserPlants(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
-    date_planted = models.DateField()
+    date_planted = models.DateTimeField()
     is_harvested = models.BooleanField()
     

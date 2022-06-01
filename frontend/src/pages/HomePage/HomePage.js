@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
+import DateTimeTracker from "../../components/DateTimeTracker/DateTimeTracker";
 
 import axios from "axios";
 
@@ -35,6 +36,7 @@ const HomePage = () => {
         plants.map((plant) => (
           <li key={plant.id}>
             {plant.plant.name}  Planted: {plant.date_planted}  Time to harvest: {plant.plant.time_to_harvest}
+            <DateTimeTracker plants={plants} />
           </li>
         ))}
     </div>
