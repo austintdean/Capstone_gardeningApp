@@ -24,7 +24,7 @@ const HomePage = () => {
         setPlants(response.data);
         alert('Make sure you water your plants!')
       } catch (error) {
-        console.log(error.response.data);
+        console.log(error.response);
       }
     };
     fetchPlants();
@@ -36,9 +36,10 @@ const HomePage = () => {
         plants.map((plant) => (
           <li key={plant.id}>
             {plant.plant.name}  Planted: {plant.date_planted}  Time to harvest: {plant.plant.time_to_harvest}
-            <DateTimeTracker plants={plants} />
+            <DateTimeTracker plant={plant}/> 
           </li>
         ))}
+        
     </div>
   );
 };

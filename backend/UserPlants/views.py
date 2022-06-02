@@ -70,3 +70,12 @@ def delete_plant(request):
             return Response(status.HTTP_204_NO_CONTENT)
 
 
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def delete_plant(request):
+        if request.method == 'DELETE':
+            UserPlants.delete()
+            return Response(status.HTTP_204_NO_CONTENT)
+
+
