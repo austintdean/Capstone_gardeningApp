@@ -1,6 +1,6 @@
 ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   list-style-type: none;
 }
 
@@ -9,7 +9,7 @@ li {
 }
 
 .navBar {
-  background: steelblue;
+  background: green;
   box-shadow: 4px 2px 5px gray;
   color: white;
   margin-bottom: 2rem;
@@ -25,7 +25,7 @@ li {
 
 .navBar button:hover {
   background: white;
-  color: steelblue;
+  color: greenyellow;
   cursor: pointer;
 }
 

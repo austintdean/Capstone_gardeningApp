@@ -9,6 +9,10 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import PlantsPage from "./pages/PlantsPage/PlantsPage";
 import AddPlantsPage from "./pages/AddPlantsPage/AddPlantsPage"
 import SpringPlantsPage from "./pages/SpringPlantsPage/SpringPlantsPage";
+import FallPlantsPage from "./pages/FallPlantsPage/FallPlantsPage";
+import SummerPlantsPage from "./pages/SummerPlantsPage/SummerPlantsPage"
+import WinterPlantsPage from "./pages/WinterPlantsPage/WinterPlantsPage"
+
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -34,11 +38,15 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/all" element={<PlantsPage />}/>
+        <Route path="/all/spring/" element={<SpringPlantsPage />}/>
+        <Route path="/all/summer/" element={<SummerPlantsPage />}/>
+        <Route path="/all/fall/" element={<FallPlantsPage />}/>
+        <Route path="/all/winter/" element={<WinterPlantsPage />}/>
         <Route path="/addplants/:plantId/" element={
         <PrivateRoute>
           <AddPlantsPage />
         </PrivateRoute>}/>
-        <Route path="/spring" element={<PrivateRoute><SpringPlantsPage /></PrivateRoute>}/>
+       
       </Routes>
       <Footer />
     </div>

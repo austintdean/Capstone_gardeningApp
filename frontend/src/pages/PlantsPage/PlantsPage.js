@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
-import { useNavigate} from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 
 
@@ -64,6 +64,24 @@ const PlantsPage = () => {
               
                
             </tbody>
+            <tfoot>
+                <nav>
+                    <ul>
+                        <Link to='spring/'>
+                            <li>Spring Plants</li>
+                        </Link>
+                        <Link to='summer/'>
+                            <li>Summer Plants</li>
+                        </Link>
+                        <Link to='fall/'>
+                            <li>Fall Plants</li>
+                        </Link>
+                        <Link to='winter/'>
+                            <li>Winter Plants</li>
+                        </Link>
+                    </ul>
+                </nav>
+            </tfoot>
 
 
         </table>

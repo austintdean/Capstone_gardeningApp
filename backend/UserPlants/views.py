@@ -1,4 +1,5 @@
 from multiprocessing.spawn import prepare
+from urllib import request
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
@@ -7,6 +8,9 @@ from .models import UserPlants
 from .serializers import UserPlantsSerializer
 from .models import Plant
 from plants.serializers import PlantSerializer 
+from datetime import timedelta, date
+from django.shortcuts import get_object_or_404
+
 # <<<<<<<<<<<<<<<<< EXAMPLE FOR STARTER CODE USE <<<<<<<<<<<<<<<<<
 
 
@@ -62,20 +66,27 @@ def user_plants(request):
         serializer = UserPlantsSerializer(cars, many=True)
         return Response(serializer.data)
     
-@api_view(['DELETE'])
-@permission_classes([IsAuthenticated])
-def delete_plant(request):
-        if request.method == 'DELETE':
-            UserPlants.delete()
-            return Response(status.HTTP_204_NO_CONTENT)
-
-
     
-@api_view(['GET'])
+@api_view(['DELETE', 'PATCH'])
 @permission_classes([IsAuthenticated])
-def delete_plant(request):
-        if request.method == 'DELETE':
-            UserPlants.delete()
-            return Response(status.HTTP_204_NO_CONTENT)
+def delete_plant_or_change(request, pk):
+    user_plant = get_object_or_404(UserPlants, pk=pk)
+    if request.method == 'DELETE':
+        UserPlants.delete()
+        return Response(status.HTTP_204_NO_CONTENT)
+    elif request.method == 'PATCH':
+        user_plant.is_harvested == True
+        serializer = UserPlantsSerializer(user_plant, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+    
 
 
+
+
+
+
+
+ 
+    

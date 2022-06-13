@@ -5,36 +5,41 @@ import React, { useState , useEffect} from 'react';
 
 const DateTimeTracker = (props) => {
      
-    const [date, setDate] = useState([])
-    const [plantDate, setPlantDate] = useState([])
+    function waterPlants(){
+        let date = new Date();
+
+        alert('It is time to water your plants!')
+
+    }
     
+     
+   
     function handleSubmit(event){
         event.preventDefault();
-        let newDate = {
-            date: ((date - plantDate) / (1000 * 60 * 60 * 24))
-        };
-        console.log('date', date)
-        console.log('plantDate', plantDate)
-        console.log('newDate', newDate)
-        console.log('props.plant.date_planted', props.plant.date_planted)
+       
+       
+        
+        
+        
+        // console.log(daysTill);
+        // console.log(plantDate);
+        // console.log(finalDate);
+        // console.log(newDate);
+        
+      
         
     }
     
     
-    useEffect(()=> {
-        setPlantDate(new Date(props.plant.date_planted));
-        
-        
-    },[props])
+    
 
     
     
     return(
         <form onSubmit={handleSubmit}>
-            {console.log('props', props)}
-            <label>Date of Expected Harvest</label>
-            <input type='date'  onChange={(event) => setDate(new Date(event.target.value))}></input>
-            <button type='submit'>Check it out!</button>
+            <label>Have you watered your plants?</label>
+            <button type='submit' onClick={() => setTimeout(waterPlants, 86400000)}>Watered!</button>
+
         </form>
      )
     }

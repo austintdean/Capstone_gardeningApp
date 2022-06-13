@@ -1,0 +1,10 @@
+.content-plants{
+    border-collapse: collapse;
+    margin: 0;
+    font-size: 0.9em;
+    text-align: center;
+    min-width: 25 em;
+     
+    background-image: url("../../../public/pawel-czerwinski-yryt6Hwl52U-unsplash.jpg");
+    background-size: contain
+}
